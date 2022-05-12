@@ -60,7 +60,7 @@ def main():
 
             marker = mission_folder.newpoint()
             marker.coords = [(longitude, latitude)]
-            marker.style.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/road_shield3.png'
+            marker.style.iconstyle.icon.href = 'https://static.virunga.link/icons/drone_photo.png'
             marker.description = f'<![CDATA[<img style="max-width:500px;" src="file:///{photo_path}">]]>'
             marker.visibility = 0
 
