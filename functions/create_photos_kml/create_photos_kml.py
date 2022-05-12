@@ -68,15 +68,17 @@ def main():
 
     #local_kmz_href = os.path.join('/', 'tmp', 'spot.kmz')
 
-    kml.save("drone_photos.kml")
+    drone_photos_path = os.path.join(os.path.dirname(__file__), "drone_photos.kml")
 
-    with open("drone_photos.kml", "r") as f:
+    kml.save(drone_photos_path)
+
+    with open(drone_photos_path, "r") as f:
         kml_file = f.read()
         kml_file = kml_file.replace("&lt;", "<")
         kml_file = kml_file.replace("&quot;", "\"")
         kml_file = kml_file.replace("&gt;", ">")
-    
-    with open("drone_photos.kml", "w+") as f:
+
+    with open(drone_photos_path, "w+") as f:
         f.write(kml_file)
 
     print('success')
