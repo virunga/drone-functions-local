@@ -54,9 +54,15 @@ def main():
 
             data = gpsphoto.getGPSData(photo_path)
 
+            if 'Latitude' not in data or 'Longitude' not in data:
+                continue
+
             latitude = data['Latitude']
             longitude = data['Longitude']
-            altitude = data['Altitude']
+
+            if latitude == 0 and longitude == 0:
+                print('skipping: ' + photo_path)
+                continue
 
             marker = mission_folder.newpoint()
             marker.coords = [(longitude, latitude)]
